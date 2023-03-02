@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>账号注册</title>
+        <!-- Bootstrap core CSS -->
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/register_sendEmail.css}" rel="stylesheet">
+    </head>
+
+    <body class="text-center" th:align="center">
+        <form class="form-register" th:action="@{/registerEmail}">
+            <img class="mb-4" th:src="@{/img/bootstrap-solid.svg}" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal" th:text="#{register.tip}">Please input your email </h1>
+            <!--/*@thymesVar id="msg" type="String"*/-->
+            <p style="color: orange" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+            <!--/*@thymesVar id="registerEmail" type="String"*/-->
+            <input type="email" name="email" class="form-control" th:placeholder="#{register.email}" th:value="${registerEmail}" required="" autofocus="">
+            <input type="text" name="verifyCode" class="form-control" th:placeholder="#{register.verifyCode}" th:if="${not #strings.isEmpty(msg)}" required="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="${msg == null} ? #{register.btn} : #{register.confirm}">确定</button>
+            <p class="mt-5 mb-3 text-muted">© 2023-01-30</p>
+            <a class="btn btn-sm" th:href="@{/register_sendEmail.html(l='zh_CH')}">中文</a>
+            <a class="btn btn-sm" th:href="@{/register_sendEmail.html(l='en_US')}">English</a>
+        </form>
+    </body>
+</html>

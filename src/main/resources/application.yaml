@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/mybatis?severTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    username: 1360169584@qq.com
+    password: ajnfcapclvbvfhhg
+    host: smtp.qq.com
+    properties:
+      {mail.smtp.ssl.enable: true}
+  messages:
+    basename: i18n.login, i18n.register
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  thymeleaf:
+    cache: false
+
+
+#整合mybatis
+mybatis:
+  type-aliases-package: com.cong.pojo
+  mapper-locations:
+    - classpath:mybatis/mapper/*.xml
+
+server:
+  port: 8080
+

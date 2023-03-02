@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cong.mapper.UserMapper">
+    <select id="queryUserList" resultType="User">
+        select * from user
+    </select>
+    <select id="queryUserByAccountStatus" parameterType="Integer" resultType="User">
+        select * from user where accountStatus = #{accountStatus}
+    </select>
+    <select id="queryUserByName" parameterType="String" resultType="User">
+        select * from user where userName = #{name} or userNickName = #{name}
+    </select>
+    <select id="queryUserById" parameterType="Integer" resultType="User">
+        select * from user where id = #{id}
+    </select>
+    <select id="queryUserByEmail" parameterType="String" resultType="User">
+        select * from user where email = #{email}
+    </select>
+    <insert id="addUser" parameterType="User">
+        insert into user (id, email, password, userName, userNickname, gender, accountStatus, createTime) values (#{id}, #{email}, #{password}, #{userName}, #{userNickname}, #{gender}, #{accountStatus}, #{createTime})
+    </insert>
+    <update id="updateUser" parameterType="User">
+        update user set email=#{email}, password=#{password}, userName=#{userName}, userNickname=#{userNickname}, gender=#{gender}, accountStatus=#{accountStatus} where id = #{id}
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+
+
+</mapper>
