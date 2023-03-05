@@ -18,6 +18,9 @@
     <select id="queryUserByEmail" parameterType="String" resultType="User">
         select * from user where email = #{email}
     </select>
+    <select id="queryAuthorityByEmail" parameterType="String" resultType="String">
+        select authority from authorities where email = #{email}
+    </select>
     <insert id="addUser" parameterType="User">
         insert into user (id, email, password, userName, userNickname, gender, accountStatus, createTime) values (#{id}, #{email}, #{password}, #{userName}, #{userNickname}, #{gender}, #{accountStatus}, #{createTime})
     </insert>

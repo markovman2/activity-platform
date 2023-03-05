@@ -18,7 +18,7 @@ public class User {
      * userNickname: the name given by users themselves(can be the same)
      * gender: 0 for female, 1 for male, 2 for unknown
      * email: the email address used by users for registration(cannot be the same)
-     * accountStatus: 0 for normalization, 1 for prohibition
+     * accountStatus: 0 for prohibition, 1 for normalization
      * createTime: the actual time of users creating their accounts
      */
     private Integer id;

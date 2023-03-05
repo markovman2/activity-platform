@@ -2,11 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!--头部导航栏-->
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" th:fragment="topbar">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">[[${session.loginUser}]]</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">欢迎您，[[${session.loginNickname}]]</a>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" th:href="@{/user/logout}">注销</a>
+        <li th:if="!${session.loginEmail}">
+            <!--未登录-->
+            <a class="item" th:href="@{/user/login}">
+                <i class="address card icon"></i> 登录
+            </a>
+        </li>
+        <li th:if="${session.loginEmail}">
+            <!--注销-->
+            <a class="item" th:href="@{/user/logout}">
+                <i class="address card icon"></i> 注销
+            </a>
         </li>
     </ul>
 </nav>
@@ -16,27 +25,27 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a th:class="${active=='main.html'?'nav-link active':'nav-link'}" th:href="@{/index.html}">
+                <a th:class="${active=='main.html'?'nav-link active':'nav-link'}" th:href="@{/toActivitySquare}">
                     <span data-feather="home"></span>
-                    首页 <span class="sr-only">(current)</span>
+                    活动广场 <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="file"></span>
-                    Orders
+                    活动日程
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="shopping-cart"></span>
-                    Products
+                    收藏活动
                 </a>
             </li>
             <li class="nav-item">
                 <a th:class="${active=='list.html'?'nav-link active':'nav-link'}" th:href="@{/emps}">
-                    <span data-feather="users"></span>
-                    员工管理
+                    <span data-feather="user"></span>
+                    活动展示
                 </a>
             </li>
             <li class="nav-item">

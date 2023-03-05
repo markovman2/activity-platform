@@ -1,18 +1,19 @@
 package com.cong.controller;
 
 import com.cong.dao.UserDao;
-import com.cong.mapper.UserMapper;
 import com.cong.pojo.User;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class LoginController {
@@ -24,11 +25,11 @@ public class LoginController {
     @PostMapping("/user/login")
     public String login(@RequestParam @ApiParam(value = "email")String email, @RequestParam @ApiParam(value = "password")String password, Model model, HttpSession session) {
         User user = userDao.getUserByEmail(email);
-        String encryptedPassword = DigestUtils.md5DigestAsHex(password.getBytes());
-        if (StringUtils.hasLength(email) && user != null && encryptedPassword.equals(user.getPassword())) {
-            model.addAttribute("msg", "用户名或者密码正确");
+        BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
+        if (StringUtils.hasLength(email) && user != null && bcryptPasswordEncoder.matches(password, user.getPassword())) {
             session.setAttribute("loginEmail", email);
-            return "index";
+            session.setAttribute("loginNickname", user.getUserNickname());
+            return "home_page/activitySquare";
         }
         else {
             model.addAttribute("msg", "用户名或者密码错误");

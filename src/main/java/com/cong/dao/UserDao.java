@@ -38,6 +38,10 @@ public class UserDao {
         return userMapper.queryUserByEmail(email);
     }
 
+    public String getAuthorityByEmail(String email) {
+        return userMapper.queryAuthorityByEmail(email);
+    }
+
     public void deleteUserById(Integer id) {
         userMapper.deleteUser(id);
     }

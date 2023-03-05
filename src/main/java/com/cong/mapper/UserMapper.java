@@ -20,6 +20,8 @@ public interface UserMapper {
 
     User queryUserByEmail(String email);
 
+    String queryAuthorityByEmail(String email);
+
     int addUser(User user);
 
     int updateUser(User user);
