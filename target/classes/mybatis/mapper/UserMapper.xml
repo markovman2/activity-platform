@@ -22,10 +22,10 @@
         select authority from authorities where email = #{email}
     </select>
     <insert id="addUser" parameterType="User">
-        insert into user (id, email, password, userName, userNickname, gender, accountStatus, createTime) values (#{user.id}, #{user.email}, #{user.password}, #{user.userName}, #{user.userNickname}, #{user.gender}, #{user.accountStatus}, #{user.createTime})
+        insert into user (id, email, password, userName, userNickname, gender, accountStatus, createTime) values (#{id}, #{email}, #{password}, #{userName}, #{userNickname}, #{gender}, #{accountStatus}, #{createTime})
     </insert>
     <update id="updateUser" parameterType="User">
-        update user set email=#{user.email}, password=#{user.password}, userName=#{user.userName}, userNickname=#{user.userNickname}, gender=#{user.gender}, accountStatus=#{user.accountStatus} where id = #{id}
+        update user set email=#{email}, password=#{password}, userName=#{userName}, userNickname=#{userNickname}, gender=#{gender}, accountStatus=#{accountStatus} where id = #{id}
     </update>
     <delete id="deleteUser" parameterType="int">
         delete from user where id = #{id}

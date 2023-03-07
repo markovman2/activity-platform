@@ -3,8 +3,8 @@ package com.cong.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Data
@@ -15,8 +15,8 @@ public class Activity {
      * id: unique for each activity
      * name: the name of the activity
      * introduction: some words to introduce the targeted activity
-     * start_time: the start time of the activity
-     * end_time: the end time of the activity
+     * startTime: the start time of the activity
+     * endTime: the end time of the activity
      * capacity: the max num of people can join the activity
      * status: 0 for the activity finished, 1 for the activity going on, 2 for the activity hasn't started
      * model: the picture of the activity
@@ -27,8 +27,8 @@ public class Activity {
     private Integer id;
     private String name;
     private String introduction;
-    private DateTime start_time;
-    private DateTime end_time;
+    private Timestamp startTime;
+    private Timestamp endTime;
     private Integer capacity;
     private Integer status;
     private byte[] model;
@@ -36,13 +36,14 @@ public class Activity {
     private List<String> comments;
     private List<Integer> stars;
 
-    public Activity(Integer id, String name, String introduction, DateTime start_time, DateTime end_time, Integer capacity, byte[] model, List<Integer> labels) {
+    public Activity(Integer id, String name, String introduction, Timestamp startTime, Timestamp endTime, Integer capacity, byte[] model, List<Integer> labels) {
         this.id = id;
         this.name = name;
         this.introduction = introduction;
-        this.start_time = start_time;
-        this.end_time = end_time;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.capacity = capacity;
+        this.status = 2;
         this.model = model;
         this.labels = labels;
     }
@@ -71,20 +72,27 @@ public class Activity {
         this.introduction = introduction;
     }
 
-    public DateTime getStart_time() {
-        return start_time;
+    public Timestamp getStartTime() {
+        return startTime;
     }
 
-    public void setStart_time(DateTime start_time) {
-        this.start_time = start_time;
+    public void setStartTime(Timestamp startTime) {
+        this.startTime = startTime;
     }
 
-    public DateTime getEnd_time() {
-        return end_time;
+    public Timestamp getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(DateTime end_time) {
-        this.end_time = end_time;
+    public void setEndTime(Timestamp endTime) {
+        this.endTime = endTime;
+    }
+
+    public String timeToString() {
+        String format="YYYY-MM-dd-HH-mm-ss";
+        return "活动时间：\n" +
+                "开始时间：" + startTime +
+                "\n结束时间：" + endTime;
     }
 
     public Integer getCapacity() {

@@ -7,14 +7,14 @@
     <ul class="navbar-nav px-3">
         <li th:if="!${session.loginEmail}">
             <!--未登录-->
-            <a class="item" th:href="@{/user/login}">
-                <i class="address card icon"></i> 登录
+            <a class="item" th:href="@{/user/login}" th:align="center">
+                登录
             </a>
         </li>
         <li th:if="${session.loginEmail}">
             <!--注销-->
-            <a class="item" th:href="@{/user/logout}">
-                <i class="address card icon"></i> 注销
+            <a class="item" th:href="@{/user/logout}" th:align="center">
+                注销
             </a>
         </li>
     </ul>

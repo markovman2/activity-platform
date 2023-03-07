@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Random;
 
 @Controller
+@Service
 public class RegisterController {
 
     @Resource

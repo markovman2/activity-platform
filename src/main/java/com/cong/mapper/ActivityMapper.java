@@ -2,9 +2,9 @@ package com.cong.mapper;
 
 import com.cong.pojo.Activity;
 import org.apache.ibatis.annotations.Mapper;
-import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Mapper
@@ -17,11 +17,11 @@ public interface ActivityMapper {
 
     List<Activity> queryActivityByName(String name);
 
-    List<Activity> queryAvailableActivityByTime(DateTime currentTime);
+    List<Activity> queryAvailableActivityByTime(Timestamp currentTime);
 
-    List<Activity> queryGoingActivityByTime(DateTime currentTime);
+    List<Activity> queryGoingActivityByTime(Timestamp currentTime);
 
-    List<Activity> queryFinishedActivityByTime(DateTime currentTime);
+    List<Activity> queryFinishedActivityByTime(Timestamp currentTime);
 
     int addActivity(Activity activity);
 
