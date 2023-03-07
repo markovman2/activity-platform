@@ -13,19 +13,19 @@
         select * from activity where name = #{name}
     </select>
     <select id="queryAvailableActivityByTime" resultType="Activity">
-        select * from activity where #{start_time} > now()
+        select * from activity where start_time &gt; #{currentTime}
     </select>
     <select id="queryGoingActivityByTime" resultType="Activity">
-        select * from activity where now() >= #{start_time} and #{end_time} >= now()
+        select * from activity where #{currentTime} >= start_time and end_time >= #{currentTime}
     </select>
     <select id="queryFinishedActivityByTime" resultType="Activity">
-        select * from activity where now() > #{end_time}
+        select * from activity where #{currentTime} &gt; end_time
     </select>
     <insert id="addActivity" parameterType="Activity">
-        insert into activity (id, name, introduction, start_time, end_time, capacity, status, model) values (#{id}, #{name}, #{introduction}, #{start_time}, #{end_time}, #{capacity}, #{status}, #{model})
+        insert into activity (id, name, introduction, start_time, end_time, capacity, status, model) values (#{activity.id}, #{activity.name}, #{activity.introduction}, #{activity.start_time}, #{activity.end_time}, #{activity.capacity}, #{activity.status}, #{activity.model})
     </insert>
     <update id="updateActivity" parameterType="Activity">
-        update user set name=#{name}, introduction=#{introduction}, start_time=#{start_time}, end_time=#{end_time}, capacity=#{capacity}, status=#{status}, model=#{model} where id = #{id}
+        update activity set name=#{activity.name}, introduction=#{activity.introduction}, start_time=#{activity.start_time}, end_time=#{activity.end_time}, capacity=#{activity.capacity}, status=#{activity.status}, model=#{activity.model} where id = #{activity.id}
     </update>
     <delete id="deleteActivity" parameterType="int">
         delete from activity where id = #{id}

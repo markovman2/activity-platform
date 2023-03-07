@@ -1,8 +1,14 @@
 com\cong\config\MyLocaleResolver.class
+com\cong\pojo\Activity.class
 com\cong\config\LoginHandlerInterceptor.class
+com\cong\controller\PagesController.class
 com\cong\dao\UserDao.class
 com\cong\pojo\User.class
 com\cong\mapper\UserMapper.class
 com\cong\ActivityPlatformApplication.class
 com\cong\config\MyMvcConfig.class
+com\cong\config\SecurityController.class
 com\cong\controller\LoginController.class
+com\cong\dao\ActivityDao.class
+com\cong\controller\RegisterController.class
+com\cong\mapper\ActivityMapper.class

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cong.mapper.ActivityMapper">
+    <select id="queryActivityList" resultType="Activity">
+        select * from activity
+    </select>
+    <select id="queryActivityByStatus" parameterType="Integer" resultType="Activity">
+        select * from activity where status = #{status}
+    </select>
+    <select id="queryActivityByName" parameterType="String" resultType="Activity">
+        select * from activity where name = #{name}
+    </select>
+    <select id="queryAvailableActivityByTime" resultType="Activity">
+        select * from activity where start_time &gt; #{currentTime}
+    </select>
+    <select id="queryGoingActivityByTime" resultType="Activity">
+        select * from activity where #{currentTime} >= start_time and end_time >= #{currentTime}
+    </select>
+    <select id="queryFinishedActivityByTime" resultType="Activity">
+        select * from activity where #{currentTime} &gt; end_time
+    </select>
+    <insert id="addActivity" parameterType="Activity">
+        insert into activity (id, name, introduction, start_time, end_time, capacity, status, model) values (#{activity.id}, #{activity.name}, #{activity.introduction}, #{activity.start_time}, #{activity.end_time}, #{activity.capacity}, #{activity.status}, #{activity.model})
+    </insert>
+    <update id="updateActivity" parameterType="Activity">
+        update activity set name=#{activity.name}, introduction=#{activity.introduction}, start_time=#{activity.start_time}, end_time=#{activity.end_time}, capacity=#{activity.capacity}, status=#{activity.status}, model=#{activity.model} where id = #{activity.id}
+    </update>
+    <delete id="deleteActivity" parameterType="int">
+        delete from activity where id = #{id}
+    </delete>
+</mapper>

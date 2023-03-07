@@ -2,6 +2,7 @@ package com.cong.dao;
 
 import com.cong.mapper.ActivityMapper;
 import com.cong.pojo.Activity;
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -37,11 +38,11 @@ public class ActivityDao {
     public Collection<Activity> getActivityByTime(Integer type) {
         switch (type) {
             case 0:  //search the activity which hasn't started.
-                return activityMapper.queryAvailableActivityByTime();
+                return activityMapper.queryAvailableActivityByTime(DateTime.now());
             case 1:  //search the activity which is going on.
-                return activityMapper.queryGoingActivityByTime();
+                return activityMapper.queryGoingActivityByTime(DateTime.now());
             default:  //search the activity which has been finished.
-                return activityMapper.queryFinishedActivityByTime();
+                return activityMapper.queryFinishedActivityByTime(DateTime.now());
         }
     }
 
