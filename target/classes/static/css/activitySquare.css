@@ -102,3 +102,6 @@ body {
     word-break: break-all;
     word-wrap: break-word;
 }
+.list-group.d-flex {
+    letter-spacing: 10px;
+}

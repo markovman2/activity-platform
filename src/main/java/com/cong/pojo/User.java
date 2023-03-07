@@ -3,6 +3,7 @@ package com.cong.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +29,7 @@ public class User {
     private String userNickname;
     private Integer gender;
     private Integer accountStatus;
-    private String createTime;
+    private DateTime createTime;
 
     public User(String email, String password, String userName, String userNickname, Integer gender) {
         this.email = email;
@@ -37,8 +38,7 @@ public class User {
         this.userNickname = userNickname;
         this.gender = gender;
         this.accountStatus = 0;
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.createTime = formatter.format(new Date());
+        this.createTime = DateTime.now();
     }
 
     public Integer getId() {
@@ -97,11 +97,11 @@ public class User {
         this.accountStatus = accountStatus;
     }
 
-    public String getCreateTime() {
+    public DateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(DateTime createTime) {
         this.createTime = createTime;
     }
 }
