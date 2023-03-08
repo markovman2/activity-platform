@@ -2,6 +2,7 @@ package com.cong.dao;
 
 import com.cong.mapper.ActivityMapper;
 import com.cong.pojo.Activity;
+import com.cong.pojo.User;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -45,6 +46,10 @@ public class ActivityDao {
             default:  //search the activity which has been finished.
                 return activityMapper.queryFinishedActivityByTime(new Timestamp(System.currentTimeMillis()));
         }
+    }
+
+    public Collection<Activity> getActivityByUserEmail(String email) {
+        return activityMapper.querySelfActivity(email);
     }
 
     public void updateActivity(Activity activity) {

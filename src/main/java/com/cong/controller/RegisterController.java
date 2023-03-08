@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import java.util.Random;
 
 @Controller
-@Service
 public class RegisterController {
 
     @Resource

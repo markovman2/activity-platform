@@ -21,7 +21,6 @@ spring:
 
 #整合mybatis
 mybatis:
-
   type-aliases-package: com.cong.pojo
   mapper-locations:
     - classpath:mybatis/mapper/*.xml

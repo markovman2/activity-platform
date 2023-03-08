@@ -13,7 +13,7 @@
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link th:href="@{/css/home_page/activitySquare.css}" rel="stylesheet">
+    <link th:href="@{/css/home_page/activityParticipate.css}" rel="stylesheet">
   </head>
 
   <body>
@@ -21,9 +21,9 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div th:replace="~{commons/commons::sidebar(active='activitySquare.html')}"></div>
+        <div th:replace="~{commons/commons::sidebar(active='activityParticipate.html')}"></div>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <!--/*@thymesVar id="activities" type="Activity"*/-->
+          <!--/*@thymesVar id="activities" type="Collection<Activity>"*/-->
           <div class="list-group w-auto" th:each="activity:${activities}">
             <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
               <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">

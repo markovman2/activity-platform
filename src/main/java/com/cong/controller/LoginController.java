@@ -19,7 +19,6 @@ import java.util.Collection;
 
 
 @Controller
-@Service
 public class LoginController {
 
     @Resource

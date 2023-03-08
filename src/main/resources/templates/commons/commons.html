@@ -24,14 +24,14 @@
 <nav class="col-md-2 d-none d-md-block bg-light sidebar" th:fragment="sidebar(active)">
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
-            <li class="nav-item">
-                <a th:class="${active=='main.html'?'nav-link active':'nav-link'}" th:href="@{/toActivitySquare}">
+            <li class="nav-item" >
+                <a th:class="${active=='activitySquare.html'?'nav-link active':'nav-link'}" th:href="@{/toActivitySquare}" >
                     <span data-feather="home"></span>
                     活动广场 <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a th:class="${active=='activityParticipate.html'?'nav-link active':'nav-link'}" th:href="@{/toActivityParticipate}">
                     <span data-feather="file"></span>
                     活动日程
                 </a>

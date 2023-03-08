@@ -23,6 +23,8 @@ public interface ActivityMapper {
 
     List<Activity> queryFinishedActivityByTime(Timestamp currentTime);
 
+    List<Activity> querySelfActivity(String email);
+
     int addActivity(Activity activity);
 
     int updateActivity(Activity activity);
