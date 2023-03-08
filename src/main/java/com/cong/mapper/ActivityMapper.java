@@ -13,6 +13,8 @@ public interface ActivityMapper {
 
     List<Activity> queryActivityList();
 
+    Activity queryActivityByActivityId(Integer id);
+
     List<Activity> queryActivityByStatus(Integer status);
 
     List<Activity> queryActivityByName(String name);
@@ -26,6 +28,10 @@ public interface ActivityMapper {
     List<Activity> querySelfActivity(String email);
 
     List<Activity> querySelfFavouriteActivity(String email);
+
+    List<String> queryActivityComments(Integer id);
+
+    List<Integer> queryActivityStars(Integer id);
 
     int addActivity(Activity activity);
 

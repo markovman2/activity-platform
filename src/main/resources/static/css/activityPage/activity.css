@@ -27,26 +27,31 @@ body {
   }
 }
 
-.nav-scroller .nav {
-  color: rgba(255, 255, 255, .75);
+.activity-header {
+  width: 100%;
+  color: #0b2e13;
+  border: 2px dashed #dee2e6;
+  text-align: center;
+  font-family: 楷体;
 }
 
-.nav-scroller .nav-link {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  font-size: .875rem;
-  color: #6c757d;
+.activity-factor {
+  color: #0a58ca;
+  font-family: 宋体;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.nav-scroller .nav-link:hover {
-  color: #007bff;
+.activity-photo {
+  width: 50%;
 }
 
-.nav-scroller .active {
-  font-weight: 500;
-  color: #343a40;
+.activity-contents {
+  width: 50%;
+  height: 100%;
 }
 
-.bg-purple {
-  background-color: #6f42c1;
+.introduction {
+  font-family: 宋体;
+  text-indent: 2em;
 }

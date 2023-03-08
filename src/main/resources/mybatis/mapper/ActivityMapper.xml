@@ -6,6 +6,9 @@
     <select id="queryActivityList" resultType="Activity">
         select * from activity
     </select>
+    <select id="queryActivityByActivityId" parameterType="Integer" resultType="Activity">
+        select * from activity where id = #{id}
+    </select>
     <select id="queryActivityByStatus" parameterType="Integer" resultType="Activity">
         select * from activity where status = #{status}
     </select>
@@ -26,6 +29,12 @@
     </select>
     <select id="querySelfFavouriteActivity" resultType="Activity">
         select * from activity a where a.id in (select b.activityId from user2favourite_activity b right join user c on b.userId = c.id where c.email = #{email}) order by startTime
+    </select>
+    <select id="queryActivityComments" resultType="String">
+        select comments from comments2activity where activityId = #{id}
+    </select>
+    <select id="queryActivityStars" resultType="Integer">
+        select star from stars2activity where activityId = #{id}
     </select>
     <insert id="addActivity" parameterType="Activity">
         insert into activity (id, name, introduction, startTime, endTime, capacity, status, model) values (#{id}, #{name}, #{introduction}, #{startTime}, #{endTime}, #{capacity}, #{status}, #{model})

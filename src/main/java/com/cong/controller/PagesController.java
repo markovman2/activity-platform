@@ -26,7 +26,10 @@ public class PagesController {
 
     @RequestMapping("/toActivityPage/activityId={id}")
     public String toActivityPage(@PathVariable Integer id, Model model) {
-        model.addAttribute("activityId", id);
+        Activity activity = activityDao.getActivityByActivityId(id);
+        model.addAttribute("activity", activity);
+        model.addAttribute("comments", activityDao.getActivityComments(id));
+        model.addAttribute("stars", activityDao.getActivityStars(id));
         return "activityPage/activity";
     }
 

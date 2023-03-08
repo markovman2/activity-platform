@@ -28,6 +28,10 @@ public class ActivityDao {
         return activityMapper.queryActivityList();
     }
 
+    public Activity getActivityByActivityId(Integer id) {
+        return activityMapper.queryActivityByActivityId(id);
+    }
+
     public Collection<Activity> getActivityByStatus(Integer status) {
         return activityMapper.queryActivityByStatus(status);
     }
@@ -53,6 +57,18 @@ public class ActivityDao {
 
     public Collection<Activity> getFavouriteActivityByUserEmail(String email) {
         return activityMapper.querySelfFavouriteActivity(email);
+    }
+
+    public Collection<String> getActivityComments(Integer id) {
+        return activityMapper.queryActivityComments(id);
+    }
+
+    public Collection<Integer> getActivityStars(Integer id) {
+        return activityMapper.queryActivityStars(id);
+    }
+
+    public void addActivity(Activity activity) {
+        activityMapper.addActivity(activity);
     }
 
     public void updateActivity(Activity activity) {

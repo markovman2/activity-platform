@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Data
@@ -76,12 +77,22 @@ public class Activity {
         return startTime;
     }
 
+    public String getStartTimeToString() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return df.format(startTime);
+    }
+
     public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
     public Timestamp getEndTime() {
         return endTime;
+    }
+
+    public String getEndTimeToString() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return df.format(endTime);
     }
 
     public void setEndTime(Timestamp endTime) {
