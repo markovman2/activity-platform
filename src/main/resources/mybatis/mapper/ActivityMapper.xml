@@ -22,7 +22,10 @@
         select * from activity where #{currentTime} &gt; endTime
     </select>
     <select id="querySelfActivity" resultType="Activity">
-        select * from activity a where a.id in (select b.activityId from user2activity b right join user c on b.userId = c.id where c.email = #{email})
+        select * from activity a where a.id in (select b.activityId from user2activity b right join user c on b.userId = c.id where c.email = #{email}) order by startTime
+    </select>
+    <select id="querySelfFavouriteActivity" resultType="Activity">
+        select * from activity a where a.id in (select b.activityId from user2favourite_activity b right join user c on b.userId = c.id where c.email = #{email}) order by startTime
     </select>
     <insert id="addActivity" parameterType="Activity">
         insert into activity (id, name, introduction, startTime, endTime, capacity, status, model) values (#{id}, #{name}, #{introduction}, #{startTime}, #{endTime}, #{capacity}, #{status}, #{model})

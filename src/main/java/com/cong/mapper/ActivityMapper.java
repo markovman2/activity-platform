@@ -25,6 +25,8 @@ public interface ActivityMapper {
 
     List<Activity> querySelfActivity(String email);
 
+    List<Activity> querySelfFavouriteActivity(String email);
+
     int addActivity(Activity activity);
 
     int updateActivity(Activity activity);

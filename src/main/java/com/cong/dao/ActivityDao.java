@@ -2,7 +2,6 @@ package com.cong.dao;
 
 import com.cong.mapper.ActivityMapper;
 import com.cong.pojo.Activity;
-import com.cong.pojo.User;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -50,6 +49,10 @@ public class ActivityDao {
 
     public Collection<Activity> getActivityByUserEmail(String email) {
         return activityMapper.querySelfActivity(email);
+    }
+
+    public Collection<Activity> getFavouriteActivityByUserEmail(String email) {
+        return activityMapper.querySelfFavouriteActivity(email);
     }
 
     public void updateActivity(Activity activity) {

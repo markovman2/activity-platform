@@ -14,7 +14,8 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index.html").setViewName("index");
         registry.addViewController("/register_sendEmail.html").setViewName("register_sendEmail");
-        registry.addViewController("/register_setAccountInformation").setViewName("register_setAccountInformation");
+        registry.addViewController("/register_setAccountInformation.html").setViewName("register_setAccountInformation");
+        registry.addViewController("/home_page/activitySquare.html").setViewName("activitySquare");
     }
 
     //自定义的国际化组件
@@ -26,6 +27,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/*").
-                excludePathPatterns("/", "/index.html", "/register_sendEmail.html", "/user/login", "/toRegister");
+                excludePathPatterns("/", "/index.html", "/register_sendEmail.html", "/home_page/activitySquare.html",
+                        "/user/login", "/toRegister", "/toActivitySquare");
     }
 }
