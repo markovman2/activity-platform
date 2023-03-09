@@ -19,6 +19,8 @@ public interface ActivityMapper {
 
     List<Activity> queryActivityByName(String name);
 
+    List<Integer> queryActivityByUserId(Integer userId);
+
     List<Activity> queryAvailableActivityByTime(Timestamp currentTime);
 
     List<Activity> queryGoingActivityByTime(Timestamp currentTime);

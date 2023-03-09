@@ -15,6 +15,9 @@
     <select id="queryActivityByName" parameterType="String" resultType="Activity">
         select * from activity where name = #{name}
     </select>
+    <select id="queryActivityByUserId" parameterType="Integer" resultType="Integer">
+        select a.id from activity a where a.id in (select b.activityId from user2activity b where b.userId = #{userId})
+    </select>
     <select id="queryAvailableActivityByTime" resultType="Activity">
         select * from activity where startTime &gt; #{currentTime}
     </select>

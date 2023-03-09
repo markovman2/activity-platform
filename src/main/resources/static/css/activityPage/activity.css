@@ -4,7 +4,7 @@ body {
 }
 
 body {
-  padding-top: 56px;
+  font-size: .875rem;
 }
 
 @media (max-width: 991.98px) {

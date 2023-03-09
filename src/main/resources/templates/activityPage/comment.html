@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>活动评价</title>
+
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/activityPage/activity.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div th:replace="~{commons/commons::activity-topbar}"></div>
+
+    <main class="container">
+      <!--/*@thymesVar id="activityId" type="Integer"*/-->
+      <form class="form-sign-in" th:action="@{/toActivityPage/comment}" method="post">
+        <h1 class="h3 mb-3 font-weight-normal">评论内容</h1>
+        <!--/*@thymesVar id="msg" type="String"*/-->
+        <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+        <input type="text" name="activityComment" class="form-control" th:placeholder="活动评价" required="" autofocus="">
+        <div class="form-group">
+          <label>department</label>
+          <select class="form-control" name="activityStar">
+            <option value="5">非常满意</option>
+            <option value="4">比较满意</option>
+            <option value="3">一般</option>
+            <option value="2">比较不满意</option>
+            <option value="1">非常不满意</option>
+          </select>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">确认</button>
+      </form>
+    </main>
+  </body>
+</html>

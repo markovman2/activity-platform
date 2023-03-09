@@ -3,6 +3,7 @@ package com.cong.dao;
 import com.cong.mapper.UserMapper;
 import com.cong.pojo.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.Collection;
@@ -44,6 +45,10 @@ public class UserDao {
 
     public void deleteUserById(Integer id) {
         userMapper.deleteUser(id);
+    }
+
+    public void userParticipateActivities(Integer userId, Integer activityId) {
+        userMapper.userParticipateActivities(userId, activityId);
     }
 
 }

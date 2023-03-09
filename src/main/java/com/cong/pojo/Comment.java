@@ -24,14 +24,16 @@ public class Comment {
     private Integer activityId;
     private String activityName;
     private String comment;
+    private Integer star;
     private Timestamp createTime;
 
-    public Comment(Integer userId, String userNickname, Integer activityId, String activityName, String comment) {
+    public Comment(Integer userId, String userNickname, Integer activityId, String activityName, String comment, Integer star) {
         this.userId = userId;
         this.userNickname = userNickname;
         this.activityId = activityId;
         this.activityName = activityName;
         this.comment = comment;
+        this.star = star;
         this.createTime = new Timestamp(System.currentTimeMillis());
     }
 
@@ -59,12 +61,28 @@ public class Comment {
         this.activityId = activityId;
     }
 
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
     public String getComment() {
         return comment;
     }
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public Integer getStar() {
+        return star;
+    }
+
+    public void setStar(Integer star) {
+        this.star = star;
     }
 
     public Timestamp getCreateTime() {

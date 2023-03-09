@@ -30,6 +30,7 @@
     <delete id="deleteUser" parameterType="int">
         delete from user where id = #{id}
     </delete>
-
-
+    <insert id="userParticipateActivities">
+        insert into user2activity (userId, activityId) values (#{userId}, #{activityId})
+    </insert>
 </mapper>

@@ -21,7 +21,8 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div th:replace="~{commons/commons::sidebar(active='activitySquare.html')}"></div>
+        <!--/*@thymesVar id="pageName" type="String"*/-->
+        <div th:replace="~{commons/commons::sidebar(active=${pageName})}"></div>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <!--/*@thymesVar id="activities" type="Activity"*/-->
           <div class="list-group w-auto" th:each="activity:${activities}">

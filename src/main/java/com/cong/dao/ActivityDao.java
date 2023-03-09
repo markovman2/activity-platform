@@ -40,6 +40,10 @@ public class ActivityDao {
         return activityMapper.queryActivityByName(name);
     }
 
+    public Collection<Integer> getActivityByUserId(Integer userId) {
+        return activityMapper.queryActivityByUserId(userId);
+    }
+
     public Collection<Activity> getActivityByTime(Integer type) {
         switch (type) {
             case 0:  //search the activity which hasn't started.

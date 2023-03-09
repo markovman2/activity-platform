@@ -37,6 +37,7 @@ public class LoginController {
             session.setAttribute("loginEmail", email);
             session.setAttribute("loginNickname", user.getUserNickname());
             model.addAttribute("activities", activities);
+            model.addAttribute("pageName", "activitySquare.html");
             return "home_page/activitySquare";
         }
         else {

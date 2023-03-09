@@ -20,6 +20,13 @@
     </ul>
 </nav>
 
+<!--活动详情头部导航栏-->
+<nav class="navbar navbar-dark sticky-top bg-light flex-md-nowrap p-0" th:fragment="activity-topbar">
+    <a th:href="@{/toActivitySquare}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img class="bi me-2" th:src="@{/img/returnLabel.png}" width="40" height="32">
+    </a>
+</nav>
+
 <!--侧边导航栏-->
 <nav class="col-md-2 d-none d-md-block bg-light sidebar" th:fragment="sidebar(active)">
     <div class="sidebar-sticky">
@@ -37,13 +44,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a th:class="${active=='activityEnshrined.html'?'nav-link active':'nav-link'}" th:href="@{/toActivityEnshrined}">
                     <span data-feather="shopping-cart"></span>
                     收藏活动
                 </a>
             </li>
             <li class="nav-item">
-                <a th:class="${active=='list.html'?'nav-link active':'nav-link'}" th:href="@{/emps}">
+                <a th:class="${active=='list.html'?'nav-link active':'nav-link'}" href="#">
                     <span data-feather="user"></span>
                     活动展示
                 </a>

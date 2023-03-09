@@ -100,10 +100,7 @@ public class Activity {
     }
 
     public String timeToString() {
-        String format="YYYY-MM-dd-HH-mm-ss";
-        return "活动时间：\n" +
-                "开始时间：" + startTime +
-                "\n结束时间：" + endTime;
+        return "开始时间：" + startTime + "    结束时间：" + endTime;
     }
 
     public Integer getCapacity() {
