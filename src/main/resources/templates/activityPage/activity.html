@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>Offcanvas navbar template · Bootstrap v5.3</title>
+    <title>活动详情</title>
     
 
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
@@ -104,9 +104,9 @@
           <!--/*@thymesVar id="comments" type="String"*/-->
           <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
             <div class="d-flex justify-content-between">
-              <strong class="text-gray-dark">Full Name</strong>
+              <strong class="text-gray-dark" th:text="${comment.getUserNickname()}"></strong>
             </div>
-            <span class="d-block" th:text="${comment}"></span>
+            <span class="d-block" th:text="${comment.getComment()}"></span>
           </div>
         </div>
       </div>

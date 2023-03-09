@@ -1,6 +1,7 @@
 package com.cong.controller;
 
 import com.cong.dao.ActivityDao;
+import com.cong.dao.CommentDao;
 import com.cong.pojo.Activity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,9 @@ public class PagesController {
     @Resource
     private ActivityDao activityDao;
 
+    @Resource
+    private CommentDao commentDao;
+
     @RequestMapping("/toActivitySquare")
     public String toDashboard(Model model) {
         Collection<Activity> activities = activityDao.getAll();
@@ -28,8 +32,7 @@ public class PagesController {
     public String toActivityPage(@PathVariable Integer id, Model model) {
         Activity activity = activityDao.getActivityByActivityId(id);
         model.addAttribute("activity", activity);
-        model.addAttribute("comments", activityDao.getActivityComments(id));
-        model.addAttribute("stars", activityDao.getActivityStars(id));
+        model.addAttribute("comments", commentDao.getCommentByActivityId(id));
         return "activityPage/activity";
     }
 
